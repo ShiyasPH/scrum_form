@@ -1,5 +1,5 @@
 {
-  "name": "boilerplate",
+  "name": "scrumform",
   "private": true,
   "dependencies": {
     "@rails/webpacker": "^4.0.7"

@@ -1,0 +1,19 @@
+[0;1;32m●[0m docker.service - Docker Application Container Engine
+   Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+   Active: [0;1;32mactive (running)[0m since Tue 2019-08-13 08:21:49 IST; 3min 3s ago
+     Docs: https://docs.docker.com
+ Main PID: 7225 (dockerd)
+    Tasks: 16
+   CGroup: /system.slice/docker.service
+           └─7225 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+
+Aug 13 08:21:49 codeastra-Lenovo-ideapad-330-15IKB dockerd[7225]: time="2019-08-13T08:21:49.163358116+05:30" level=warning msg="Your kernel does not support cgroup rt runtime"
+Aug 13 08:21:49 codeastra-Lenovo-ideapad-330-15IKB dockerd[7225]: time="2019-08-13T08:21:49.163369821+05:30" level=warning msg="Your kernel does not support cgroup blkio weight"
+Aug 13 08:21:49 codeastra-Lenovo-ideapad-330-15IKB dockerd[7225]: time="2019-08-13T08:21:49.163381969+05:30" level=warning msg="Your kernel does not support cgroup blkio weight_device"
+Aug 13 08:21:49 codeastra-Lenovo-ideapad-330-15IKB dockerd[7225]: time="2019-08-13T08:21:49.163585127+05:30" level=info msg="Loading containers: start."
+Aug 13 08:21:49 codeastra-Lenovo-ideapad-330-15IKB dockerd[7225]: time="2019-08-13T08:21:49.268467308+05:30" level=info msg="Default bridge (docker0) is assigned with an IP address 172.17.0.0/16. Daemon option --bip can be used to set a preferred IP address"
+Aug 13 08:21:49 codeastra-Lenovo-ideapad-330-15IKB dockerd[7225]: time="2019-08-13T08:21:49.316211933+05:30" level=info msg="Loading containers: done."
+Aug 13 08:21:49 codeastra-Lenovo-ideapad-330-15IKB dockerd[7225]: time="2019-08-13T08:21:49.371932112+05:30" level=info msg="Docker daemon" commit=74b1e89 graphdriver(s)=overlay2 version=19.03.1
+Aug 13 08:21:49 codeastra-Lenovo-ideapad-330-15IKB dockerd[7225]: time="2019-08-13T08:21:49.372039580+05:30" level=info msg="Daemon has completed initialization"
+Aug 13 08:21:49 codeastra-Lenovo-ideapad-330-15IKB dockerd[7225]: time="2019-08-13T08:21:49.398019673+05:30" level=info msg="API listen on /var/run/docker.sock"
+Aug 13 08:21:49 codeastra-Lenovo-ideapad-330-15IKB systemd[1]: Started Docker Application Container Engine.

@@ -2,7 +2,7 @@
 
 This template has the most common starting point for a Ruby on Rails app that take a few hours to setup.
 
-This boilerplate app has the following:
+This scrumform app has the following:
 - Docker enabled
 - Bootstrap 4
 - Haml
@@ -20,5 +20,5 @@ Coming up:
 - OAuth
 
 Getting Started:
-- After cloning the repo, replace the term 'Boilerplate' case-sensitively with the name of the app you desire
+- After cloning the repo, replace the term 'Scrumform' case-sensitively with the name of the app you desire
 - Continue building on top of it

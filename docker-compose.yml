@@ -5,24 +5,24 @@ volumes:
 services:
   db:
     image: postgres:11
-    container_name: boilerplate-db
+    container_name: scrumform-db
     restart: always
     environment:
       POSTGRES_PASSWORD: password
-      POSTGRES_USER: boilerplate
-      POSTGRES_DB: boilerplate_dev
+      POSTGRES_USER: scrumform
+      POSTGRES_DB: scrumform_dev
     ports:
       - 8080:8080
   app:
     tty: true
     stdin_open: true
     build: .
-    container_name: boilerplate-app
+    container_name: scrumform-app
     command: bin/rails s -b 0.0.0.0
     volumes:
       - bundle_cache:/bundle
-      - .:/boilerplate:cached
-      - /boilerplate/docker/
+      - .:/scrumform:cached
+      - /scrumform/docker/
     ports:
       - 3000:3000
     privileged: true
@@ -33,7 +33,7 @@ services:
       RAILS_ENV: development
   mailcatcher:
     image: schickling/mailcatcher
-    container_name: boilerplate-mail
+    container_name: scrumform-mail
     ports:
       - 1080:1080
       - 1025:1025

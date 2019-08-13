@@ -11,8 +11,8 @@ RUN gem update bundler
 RUN npm i -g yarn
 
 # Setup App
-RUN mkdir -p /boilerplate
-WORKDIR /boilerplate
+RUN mkdir -p /scrumform
+WORKDIR /scrumform
 COPY . .
 
 COPY ./docker/app/docker-entrypoint.sh /

@@ -23,8 +23,8 @@ default: &default
 
 development:
   <<: *default
-  username: boilerplate
-  database: boilerplate_dev
+  username: scrumform
+  database: scrumform_dev
   password: password
   host: db
 
@@ -32,7 +32,7 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: boilerplate
+  #username: scrumform
 
   # The password associated with the postgres role (username).
   #password:
@@ -60,7 +60,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: boilerplate_test
+  database: scrumform_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -83,6 +83,6 @@ test:
 #
 production:
   <<: *default
-  database: boilerplate_production
-  username: boilerplate
+  database: scrumform_production
+  username: scrumform
   password: <%= ENV['BOILERPLATE_DATABASE_PASSWORD'] %>
