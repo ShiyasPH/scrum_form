@@ -4,4 +4,5 @@ Rails.application.routes.draw do
     root to: "devise/sessions#new"
   end
   get 'home/sample'
+  resources :scrums
 end

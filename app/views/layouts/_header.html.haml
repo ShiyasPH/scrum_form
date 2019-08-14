@@ -1,3 +1,12 @@
-%header.navbar.navbar-fixed-top.navbar-inverse
-  .container-fluid
-    = link_to "CodeAstra Scrum form", root_path, id: "logo"
+!!!
+- if user_signed_in?
+  %header.navbar.navbar-fixed-top.navbar-inverse
+    .container-fluid
+      = link_to "CodeAstra Scrum form", root_path, id: "logo"
+      %nav
+        %ul.nav.navbar-nav.navbar-right
+          %li= link_to "Log out", destroy_user_session_path, method: :delete
+-else
+  %header.navbar.navbar-fixed-top.navbar-inverse
+    .container-fluid
+      = link_to "CodeAstra Scrum form", root_path, id: "logo"
