@@ -4,5 +4,8 @@ Rails.application.routes.draw do
     root to: "devise/sessions#new"
   end
   get 'home/sample'
-  resources :scrums
+  get '/scrum', to: 'scrums#show', as: 'scrum'
+  get '/scrum/new', to: 'scrums#new', as: 'new_scrum'
+  post '/scrum/create', to: 'scrums#create', as: 'scrums'
+  patch '/scrum/:id', to: 'scrums#update'
 end
