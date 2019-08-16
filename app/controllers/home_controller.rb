@@ -1,6 +1,4 @@
 class HomeController < ApplicationController
-  def welcome
-  end
-  def dashboard
+  def login
   end
 end
