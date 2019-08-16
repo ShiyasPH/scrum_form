@@ -1,0 +1,9 @@
+!!!
+%h2 My Journal
+= form_for scrum do |scrum|
+  .form-group
+    = scrum.label :check_in
+    %br/
+    = scrum.date_field :date
+  .form-group
+    = scrum.submit "Submit"
