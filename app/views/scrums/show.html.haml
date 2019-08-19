@@ -1,3 +1,7 @@
 !!!
-=render partial: "scrumDate",locals: {scrum: Scrum.new}
-=render partial: "scrumDetails",locals: {scrum: Scrum.new}
+%html
+  =render partial: "scrumDate",locals: {scrum: Scrum.new, date: @date}
+  - if @purpose == "new"
+    =render partial: "scrumDetails",locals: {scrum: Scrum.new, date: @date}
+  - elsif @purpose == "edit"
+    =render partial: "scrumDetails",locals: {scrum: @scrum}
