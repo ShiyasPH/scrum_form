@@ -1,12 +1,13 @@
 class ScrumsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :update, :index, :show]
-  
+  #before_action :authenticate_user!, only: [:create, :update, :index, :show]
+
   def show
     @date = params[:scrum] ? params[:scrum][:date] : Date.today
     @date = @date.to_date
+    current_user = User.first
     if current_user.scrums.where(date: @date).exists?
       @purpose = "edit"
-      @scrum = Scrum.find(params[:id])
+      @scrum = params[:scrum]
     else
       @purpose = "new"
     end
