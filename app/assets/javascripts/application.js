@@ -16,4 +16,5 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require jquery-ui/datepicker
 //= require_tree .

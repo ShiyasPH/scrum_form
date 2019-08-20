@@ -2,8 +2,9 @@
         'bootstrap_overrides',
         'bootstrap',
         'common',
-        url("scrums.css");
-
+        url("scrums.css"),
+        'jquery-ui/datepicker';
+ 
 /* universal */
 
 body {

@@ -1,15 +1,17 @@
 !!!
 %html
-  = form_for(scrum, url: create_scrum_path, method: :post, remote: true) do |scrum|
+  = @date
+  = form_for(@scrum, url: create_scrum_path, method: :post, remote: true) do |scrum|
     .form-group
       = scrum.label :What_did_i_do_yesterday?
-      %textarea.autoExpand{"data-min-rows" => "3", :name => "scrum[yesterday]", :rows => "3"}
+      %textarea.autoExpand{"minrows" => "3", :name => "scrum[yesterday]", :rows => "3"}
     .form-group
       = scrum.label :Any_blockers?
-      %textarea.autoExpand{"data-min-rows" => "3", :name => "scrum[blockers]", :rows => "3"}
+      %textarea.autoExpand{"minrows" => "3", :name => "scrum[blockers]", :rows => "3"}
     .form-group
       = scrum.label :What_will_i_do_today?
-      %textarea.autoExpand{"data-min-rows" => "3", :name => "scrum[today]", :rows => "3"}
-    = scrum.hidden_field :date, value:date
+      %textarea.autoExpand{"minrows" => "3", :name => "scrum[today]", :rows => "3"}
+    = scrum.hidden_field :date, value: @date
     .form-group
       = scrum.submit "Submit"
+    

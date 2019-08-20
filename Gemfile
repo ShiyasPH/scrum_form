@@ -23,6 +23,7 @@ gem 'webpacker'
 gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'turbolinks'
+gem 'jquery-ui-rails', '~> 5.0.5'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

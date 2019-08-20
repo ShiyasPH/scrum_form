@@ -1,8 +1,4 @@
 !!!
 %html
-  %h3 My Journal
-  = form_for(scrum, url: scrum_path, method: :get, remote: true) do |scrum|
-    .form-group
-      = scrum.date_field :date, value: date
-    .form-group
-      = scrum.submit "Submit"
+    -# .form-group
+    -#   = scrum.submit "Submit", id: "dateSubmit"
