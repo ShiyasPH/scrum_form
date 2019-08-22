@@ -6,4 +6,4 @@
       = scrum.text_field :date, value: @date, id: "datepick"
 
   - if @first_time == "yes"
-    =render partial: "scrumDetails",locals: {date: @date, scrum: @scrum, action: @action}
+    =render partial: "scrumDetails",locals: {date: @date, scrum: @scrum, sample:@sample}
