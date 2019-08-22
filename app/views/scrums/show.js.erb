@@ -1,1 +1,2 @@
-$('#dateform').append("<%= j render 'scrumDetails' %>");
+$('#scrumform').replaceWith("<%= j render partial: "scrumDetails", locals: {date: @date, scrum: @scrum, action: @action} %>");
+<%# $('textarea.autoExpand').html("someText"); %>

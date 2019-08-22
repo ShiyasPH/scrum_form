@@ -1,15 +1,9 @@
 !!!
 %html
   %h3 My Journal
-  -# = form_for @scrum, url: scrum_path, method: :post, remote: true, html: { id: "dateform" } do |scrum|
-  -#   .form-group
-  -#     = scrum.text_field :date, value: @date, id: "datepick"
-  
-  = form_for @scrum, url: scrum_path, method: :get, remote: true, html: { id: "dateform" } do |scrum|
+  = form_for(Scrum.new, url: scrum_path, method: :get, remote: true, html: { id: "dateform" }) do |scrum|
     .form-group
       = scrum.text_field :date, value: @date, id: "datepick"
-  
-  -# - if @purpose == "new"
-  -#   =render partial: "scrumDetails",locals: {scrum: Scrum.new, date: @date}
-  -# - elsif @purpose == "edit"
-  -#   =render partial: "scrumDetails",locals: {scrum: @scrum}
+
+  - if @first_time == "yes"
+    =render partial: "scrumDetails",locals: {date: @date, scrum: @scrum, action: @action}

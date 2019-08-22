@@ -1,17 +1,32 @@
 !!!
 %html
-  = @date
-  = form_for(@scrum, url: create_scrum_path, method: :post, remote: true) do |scrum|
-    .form-group
-      = scrum.label :What_did_i_do_yesterday?
-      %textarea.autoExpand{"minrows" => "3", :name => "scrum[yesterday]", :rows => "3"}
-    .form-group
-      = scrum.label :Any_blockers?
-      %textarea.autoExpand{"minrows" => "3", :name => "scrum[blockers]", :rows => "3"}
-    .form-group
-      = scrum.label :What_will_i_do_today?
-      %textarea.autoExpand{"minrows" => "3", :name => "scrum[today]", :rows => "3"}
-    = scrum.hidden_field :date, value: @date
-    .form-group
-      = scrum.submit "Submit"
-    
+  =date
+  - if action == "create"
+    = form_for(scrum, url: create_scrum_path, remote: true, html: { id: "scrumform" }) do |scrum|
+      .form-group
+        = scrum.label :What_did_i_do_yesterday?
+        %textarea.autoExpand{"minrows" => "3", :name => "scrum[yesterday]", :rows => "3"}
+      .form-group
+        = scrum.label :Any_blockers?
+        %textarea.autoExpand{"minrows" => "3", :name => "scrum[blockers]", :rows => "3"}
+      .form-group
+        = scrum.label :What_will_i_do_today?
+        %textarea.autoExpand{"minrows" => "3", :name => "scrum[today]", :rows => "3"}
+      = scrum.hidden_field :date, value: date
+      .form-group
+        = scrum.submit "Submit"
+
+  - else
+    = form_for(scrum, url: update_scrum_path(scrum), remote: true, html: { id: "scrumform" }) do |scrum|
+      .form-group
+        = scrum.label :What_did_i_do_yesterday?
+        %textarea.autoExpand{"minrows" => "3", :name => "scrum[yesterday]", :rows => "3", :value => "scrum[yesterday]"}
+      .form-group
+        = scrum.label :Any_blockers?
+        %textarea.autoExpand{"minrows" => "3", :name => "scrum[blockers]", :rows => "3", :value => "scrum[blockers]"}
+      .form-group
+        = scrum.label :What_will_i_do_today?
+        %textarea.autoExpand{"minrows" => "3", :name => "scrum[today]", :rows => "3", :value => "scrum[today]"}
+      = scrum.hidden_field :date, value: date
+      .form-group
+        = scrum.submit "Submit"

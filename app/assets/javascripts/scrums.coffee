@@ -8,6 +8,7 @@ $(document).one('focus.autoExpand', 'textarea.autoExpand', ->
   @rows = @getAttribute('minrows') | 0
   lineHeight = @baseScrollHeight / 3
   @rows += Math.ceil((@scrollHeight - (@baseScrollHeight)) / lineHeight)
+  return
 
 jQuery ->
   $('#datepick').datepicker
@@ -15,8 +16,8 @@ jQuery ->
     onClose: (strDate, datepicker) ->
       # $('form#dateform').trigger 'submit.rails'
       Rails.fire($(this).closest('form').get(0), 'submit')
-    #  return
-
+      return
+      
 # $('form').submit(function() {  
 #     var valuesToSubmit = $(this).serialize();
 #     $.ajax({

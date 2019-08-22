@@ -1,58 +1,48 @@
 class ScrumsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :update, :index, :show]
+  before_action :authenticate_user!, only: [:create, :update, :show]
+  respond_to :html,:json,:xml,:js
 
   def show
-    @scrum = Scrum.new
-    if params[:scrum]
-      @date = params[:scrum][:date]
-      respond_to do |format|
-        # format.html { redirect_to scrum_path }
-        format.js
-      end
-    else
+    if params[:scrum]  #after selecting date
+      @date =  params[:scrum][:date]
+      @first_time = "no"
+    else        #before selecting date
       @date = Date.today
+      @first_time = "yes"
     end
-    # if current_user.scrums.where(date: @date).exists?
-    #   @purpose = "edit"
-    #   @scrum = params[:scrum]
-    # else
-    #   @purpose = "new"
-    #   @scrum = Scrum.new
-    # end
-  end
-
-  def new
-    
+    if Scrum.exists?(user_id: current_user.id, date: @date)
+      @scrum = current_user.scrums.where(date: @date).first
+      @action = "update"
+    else
+      @scrum = Scrum.new
+      @action = "create"
+    end
   end
   
   def create
     @scrum = current_user.scrums.build(scrum_params)
-    flash[:success] = "its working"
     if @scrum.save
-      flash[:success] = "The scrum details have been saved!"
+      flash[:success] = "Successfully saved!"
     else
-      respond_to do |format|
-        format.html { redirect_to scrum_path }
-        format.js
-      end
+      flash[:alert] = "Sorry! Could not be saved!"
     end
-    redirect_to scrum_path
+    respond_with(@scrum) do |format|
+      format.js
+    end
   end
   
-  def edit
-    @scrum = Scrum.find(params[:id])
-  end
-
   def update
     @scrum = Scrum.find(params[:id])
     if @scrum.update_attributes(scrum_params)
-      flash[:success] = "The scrum details have been updated"
+      flash[:success] = "The scrum-sheet has been updated"
     else
-      flash[:success] = "The scrum details could not be updated"
+      flash[:alert] = "The scrum-sheet could not be updated"
     end
-    redirect_to(scrum_path)
+    respond_with(@scrum) do |format|
+      format.js
+    end
   end
-
+  
   private
     def scrum_params
       params.require(:scrum).permit(:date, :yesterday, :blockers, :today)
