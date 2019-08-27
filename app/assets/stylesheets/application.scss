@@ -1,8 +1,10 @@
 @import 'theme',
         'bootstrap_overrides',
         'bootstrap',
-        'common';
-
+        'common',
+        url("scrums.css"),
+        'jquery-ui/datepicker';
+ 
 /* universal */
 
 body {

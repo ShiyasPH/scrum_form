@@ -1,1 +1,9 @@
-%h1 Scrum show page
+!!!
+%html
+  %h3 My Journal
+  = form_for(Scrum.new, url: scrum_path, method: :get, remote: true, html: { id: "dateform" }) do |scrum|
+    .form-group
+      = scrum.text_field :date, value: @date, id: "datepick"
+
+  - if @first_time == "yes"
+    =render partial: "scrumDetails",locals: {date: @date, scrum: @scrum, sample:@sample}

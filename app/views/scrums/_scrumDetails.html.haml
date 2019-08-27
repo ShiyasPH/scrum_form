@@ -1,0 +1,15 @@
+!!!
+%html
+  = form_for(scrum, url: scrum.new_record? ? create_scrum_path : update_scrum_path(scrum), remote: true, html: { id: "scrumform" }) do |s|
+    .form-group
+      = s.label :What_did_i_do_yesterday?
+      %textarea.autoExpand{"minrows" => "3", :name => "scrum[yesterday]", :rows => "3"} #{scrum.yesterday}
+    .form-group
+      = s.label :Any_blockers?
+      %textarea.autoExpand{"minrows" => "3", :name => "scrum[blockers]", :rows => "3"} #{scrum.blockers}
+    .form-group
+      = s.label :What_will_i_do_today?
+      %textarea.autoExpand{"minrows" => "3", :name => "scrum[today]", :rows => "3"} #{scrum.today}
+    = s.hidden_field :date, value: date
+    .form-group
+      = s.submit "Submit"

@@ -1,3 +1,20 @@
 // Place all the styles related to the Scrums controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.form-group {
+  font-size: 1rem;
+}
+textarea{  
+  display: block;
+  box-sizing: padding-box;
+  overflow: hidden;
+  padding: 0.5% 1%;
+  width: 100%;
+  font-size: 1rem;
+  box-shadow: 2px 2px 8px rgba(black, .3);
+}
+#ui-datepicker-div{
+  background: white;
+}
+#datepick{
+}
